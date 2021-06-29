@@ -53,8 +53,8 @@ public class ConditionalStatements {
         //     System.out.println("The year " + year + " is not a leap year.");
         // }
         
-        a = 11;
-        a = a++ +  - ++a
+        int a = 11;
+        a = a++ +  - ++a;
 
         sc.close();
     }
