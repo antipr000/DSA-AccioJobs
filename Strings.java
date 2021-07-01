@@ -55,5 +55,7 @@ class Strings {
 
         System.out.println(s1.equals(s2));
         sc.close();
+
+        
     }
 }

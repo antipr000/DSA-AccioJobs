@@ -1,6 +1,6 @@
 public class SwitchCaseStatement {
     public static void main(String[] args) {
-        char grade = 'C'; //A B C D E F
+        char grade = 'Z'; //A B C D E F
         
         switch(grade){
             case 'A':
@@ -23,3 +23,5 @@ public class SwitchCaseStatement {
         }
     }
 }
+
+
