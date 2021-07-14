@@ -61,11 +61,6 @@ public class Arrays {
                 [1, 2, 3]
             ]
         */
-        for(int[] rows :matrix){
-            for(int x: rows){
-                
-            }
-        }
 
     }
 }
