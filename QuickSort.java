@@ -14,7 +14,7 @@ class QuickSortImpl{
 
 
 
-    int findInsertionPoint(int []arr, int beg, int end){
+    private int findInsertionPoint(int []arr, int beg, int end){
         /*
             Our aim is to place the pivot element in its actual place if the array was sorted.
             And in doing so ensure that all elements less than the pivot element goes to the left of the pivot
@@ -41,7 +41,7 @@ class QuickSortImpl{
         return lastInsertionPoint;
     }
 
-    public void quickSort(int []arr, int beg, int end){
+    void quickSort(int []arr, int beg, int end){
         /*
             
         */
