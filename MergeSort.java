@@ -61,3 +61,11 @@ class MergeSortUtils{
         merge(arr, lo, mid, mid+1, hi); //[lo, hi] is sorted
     }
 }
+
+/*
+    
+              [1, 2, 2, 2, 3, 3, 4]
+
+    [1, 2, 3, 4]              [2, 2, 3]
+           
+*/
