@@ -62,6 +62,49 @@ class LinkedListsMethods{
         System.out.println("");
     }
 
+    void addAtFront(int val){
+        if(head == null){
+            head = new Node(val, null);
+            return;
+        }
+        /*
+           head ->50 -> 10  -> 20 -> 30
+
+            head = 2000
+            addAtFront(50);
+            [50, 1000] -> 2000
+
+            temp = 2000
+         */
+        Node temp = new Node(val, head);
+        head = temp;
+    }
+
+    void deleteAtIndex(int i){
+        Node curr = head.next;
+        Node prev = head;
+
+        if(i == 0){
+            head = head.next;
+            return;
+        }
+
+        while(curr != null && (i-- > 0)){
+            prev = curr;
+            curr = curr.next;
+        }
+
+        if(curr == null){
+            return;
+        }
+
+        prev.next = curr.next;
+
+    }
+
+    void reverseLinkedList(){
+        //Homework
+    }
 
 }
 
@@ -70,21 +113,14 @@ public class LinkedLists {
     public static void main(String[] args) {
         LinkedListsMethods lmethods = new LinkedListsMethods();
 
-        System.out.println("Enter number of elements");
-        Scanner sc = new Scanner(System.in);
+        lmethods.addAtEnd(10);
+        lmethods.addAtEnd(20);
+        lmethods.addAtEnd(30);
+        lmethods.addAtFront(50);
 
-        int n = sc.nextInt();
-        
-        sc.nextLine();
-
-        for(int i=0;i<n;i++){
-            int el = sc.nextInt();
-            lmethods.addAtEnd(el);
-        }
+        lmethods.deleteAtIndex(1);
 
         lmethods.traverse();
-
-        sc.close();
 
     }
     
