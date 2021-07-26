@@ -104,6 +104,27 @@ class LinkedListsMethods{
 
     void reverseLinkedList(){
         //Homework
+        /*
+         null<-1<-2<-3<-4<-head
+          curr = null
+          prev = 4
+          next = null
+        */
+        Node curr, prev;
+        curr = head.next;
+        if(curr == null) return;
+        prev = head;
+
+        while(curr != null){
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        head.next = null;
+        head = prev;
+        
     }
 
 }
