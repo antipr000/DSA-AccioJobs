@@ -63,3 +63,9 @@ class PaintersProblem{
 
 
 }
+
+/*
+    You are given 2 strings. Find the longest common substring.
+    abcdaababacd
+    ababbababaab
+*/
