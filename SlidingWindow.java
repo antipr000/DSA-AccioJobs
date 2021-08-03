@@ -2,7 +2,7 @@ import Hashing.StringHashing;
 
 class ContainsDuplicate{
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        const int N = 1e5+5;
+        final int N = (int) 1e5+5;
         //0<=Ai<=N
         int []freq = new int[N];
 
@@ -38,10 +38,10 @@ class DNASequence{
     public boolean findRepeatedDnaSequences(String s) {
         StringHashing hash = new StringHashing();
         hash.precompute(s);
-        const int N = 1e6+6;
+        final int N = (int)1e6+6;
         int k = 10;
         int []freq = new int [N];
-        for(int i=k-1;i<s.length;i++){
+        for(int i=k-1;i<s.length();i++){
             int hashval = hash.getSubstringHash(i-k+1, i);
             freq[hashval] += 1;
             if(freq[hashval] == 2){

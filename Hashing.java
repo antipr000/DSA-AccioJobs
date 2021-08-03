@@ -3,17 +3,17 @@
 class StringHashing{
 
     private long P = 31;
-    private long M = 1e9+7;
-    const long N = 1e6;
+    private long M = (long)1e9+7;
+    final int N = (int)1e6;
 
     long []fxp;
-    int []prefixHash;
-    int []modInv;
+    long []prefixHash;
+    long []modInv;
 
     long fastExponentiation(long a, long b){
         long res = 1;
         while(b>0){
-            if(b&1){
+            if((b&1) > 0){
                 res = (res * a)%M;
             }
             b>>=1;
@@ -24,9 +24,9 @@ class StringHashing{
     }
 
     StringHashing(){
-        fxp = new long [N];
+        fxp = new long [(int) N];
         fxp[0] = 1;
-        for(i = 1; i<N; i++){
+        for(int i = 1; i<N; i++){
             /*
                 fxp[i] = P^i % M
                 fxp[i-1] = P^(i-1) % M;
@@ -37,17 +37,17 @@ class StringHashing{
             fxp[i] = (fxp[i-1] * P) % M;
         }
 
-        modInv = new int[N];
-        
+        modInv = new long[N];
+
         /*
-            modInv(a) modulo M,  a^(M-2)%M 
+            modInv(a) modulo M,  a^(M-2)%M
         */
         for(int i=0; i<N; i++){
             modInv[i] = fastExponentiation(fxp[i], M-2);
         }
     }
 
-    
+
 
 
     long getHash(String s){
@@ -57,30 +57,30 @@ class StringHashing{
         */
 
         long hashval = 0;
-        for(int i=0;i<s.length;i++){
+        for(int i=0;i<s.length();i++){
             long ascii = (s.charAt(i) - 'a') + 1L;
             hashval = (hashval + (ascii * fxp[i])%M) % M;
-            
+
         }
 
         return hashval;
     }
 
     public void precompute(String s){
-        prefixHash =  new long [s.length];
+        prefixHash =  new long [s.length()];
 
         long hashval = 0;
-        for(int i=0;i<s.length;i++){
+        for(int i=0;i<s.length();i++){
             long ascii = (s.charAt(i) - 'a') + 1L;
             hashval = (hashval + (ascii * fxp[i])%M) % M;
             prefixHash[i] = hashval;
-            
+
         }
     }
 
     public long getSubstringHash(int l, int r){
         //(a-b)%m = (a%m - b%m + m)%m
-        int val = (prefixHash[r] - (l > 0 ? prefixHash[l-1] : 0) + M)%M;
+        long val = (prefixHash[r] - (l > 0 ? prefixHash[l-1] : 0) + M)%M;
         val = (val * modInv[l])%M;
 
         return val;
