@@ -1,6 +1,35 @@
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class Heaps {
+    public static void main(String[] args) {
+        /*
+        * Kth largest element for all subarrays [0, i] where 0<=i<n
+        * */
+        int [] arr = {3,2,3,1,2,4,5,5,6};
+        int n = arr.length;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        int []ans = new int[n];
+        int k = 4;
+        for(int i=0; i<n; i++){
+            if(pq.size() == k){
+                if(pq.peek() < arr[i]){
+                    pq.poll();
+                    pq.add(arr[i]);
+                    ans[i] = pq.peek();
+                }
+            } else {
+                pq.add(arr[i]);
+                if(pq.size() == k){
+                    ans[i] = pq.peek();
+                } else{
+                    ans[i] = -1;
+                }
+            }
+        }
+
+        System.out.println(ans.toString());
+    }
 }
 
 class HeapImpl{
