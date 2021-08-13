@@ -1,9 +1,6 @@
 package com;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 public class TreeMapImpl {
     public static void main(String[] args) {
@@ -98,4 +95,11 @@ class Student{
     String id;
     String name;
     int marks;
+}
+
+class CollectionsPractice{
+    void collectionPractice(){
+        HashMap<Character, Integer> h = new HashMap<>();
+
+    }
 }
