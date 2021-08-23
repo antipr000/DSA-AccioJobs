@@ -125,6 +125,29 @@ class LinkedListsMethods{
         
     }
 
+    void swap(int k1){
+        Node curr = head;
+        Node prev = null;
+        while(curr.val != k1){
+            prev = curr;
+            curr = curr.next;
+        }
+
+        if(prev == null){
+            //head->2->1->3    => 2->1->3   temp = 3
+            Node temp = curr.next.next;
+            curr.next.next = curr;
+            head = curr.next;
+            curr.next = temp;
+        } else{
+            //1-->3 ->2 -> 4  -> 1->3->2->4 curr = 2, prev = 1 temp=4
+            prev.next = curr.next;
+            Node temp = curr.next.next;
+            curr.next.next = curr;
+            curr.next = temp;
+        }
+    }
+
 }
 
 public class LinkedLists {
